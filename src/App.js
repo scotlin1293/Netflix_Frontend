@@ -8,6 +8,7 @@ import Footer from "./components/footer/Footer";
 import { BrowserRouter } from "react-router-dom";
 import useLocalStorage from "./hooks/uselocalstorage";
 import { setupToken } from "./redux/actions/user-actions/userAction";
+import { fetchFavMovies } from "./redux/actions/fav-movies-actions/favMoviesAction";
 //just to debug and check the userReducer state
 import { useSelector } from "react-redux";
 
@@ -23,6 +24,7 @@ const App = () => {
     if (token) {
       async function setUser() {
         await dispatch(setupToken(token));
+        await dispatch(fetchFavMovies());
       }
       setUser();
       setLoading(false);
