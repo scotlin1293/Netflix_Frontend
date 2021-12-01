@@ -165,7 +165,6 @@ function Navbar() {
                 >
                   My List
                 </NavLink>
-              <div>
                 <NavLink
                   className={styles.link}
                   onClick={clearInputField}
