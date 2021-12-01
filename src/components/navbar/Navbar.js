@@ -74,7 +74,6 @@ function Navbar() {
   }, []);
 
   return (
-    <>
       <div className={`${styles.navbar} ${show && styles.navbarColor}`}>
         <div className={styles["flex-container"]}>
           <div className={styles["flex-container-logo"]}>
@@ -154,6 +153,18 @@ function Navbar() {
               onChange={handleSearch}
             />
             {user.token == "" ? (
+              <div>
+                <NavLink
+                  className={styles.link}
+                  onClick={clearInputField}
+                  to={{
+                    pathname: "/favorites/",
+                  }}
+                  exact
+                  activeStyle={{ fontWeight: "bold" }}
+                >
+                  My List
+                </NavLink>
               <div>
                 <NavLink
                   className={styles.link}

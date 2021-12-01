@@ -56,4 +56,4 @@ const fetchFavMovies = () => async (dispatch) => {
   } catch (e) {}
 };
 
-export { login, register };
+export { favorite, unfavorite, fetchFavMovies };
