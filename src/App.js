@@ -18,20 +18,27 @@ const App = () => {
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
+  const favMovies = useSelector((state) => state.favMovies);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    dispatch(axios());
+    async function fetchMv() {
+      await dispatch(axios());
+    }
+    fetchMv();
+    console.log(token);
     if (token) {
-      async function setUser() {
+      (async function setUser() {
         await dispatch(setupToken(token));
-        await dispatch(fetchFavMovies());
-      }
-      setUser();
+        await dispatch(await fetchFavMovies());
+      })();
+      console.log(user);
+      setLoading(false);
+    } else {
+      console.log("here");
+
       setLoading(false);
     }
-    setLoading(false);
   }, []);
-
   if (loading) {
     return <div />;
   } else {
