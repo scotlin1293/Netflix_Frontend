@@ -1,4 +1,4 @@
-
+See at live preview at https://netflix-twin1.herokuapp.com/
 
 ## Built With
 
@@ -17,7 +17,7 @@
 - React-icons
 - Axios
 - Prop-types
-- [Heroku](https://jassi-netflix-clone.herokuapp.com/)
+- Heroku
 
 <!-- Future Updates -->
 
