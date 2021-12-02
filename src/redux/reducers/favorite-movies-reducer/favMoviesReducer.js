@@ -16,16 +16,16 @@ const favMovieReducer = (state = INITIAL_STATE, action) => {
     case FAVORITE:
       return {
         ...state,
-        movies: [...state.movies, ...action.payload],
+        movies: [...state.movies, action.payload],
       };
     //filters out the movie id passed in the payload
     case UNFAVORITE: {
       let newFavMovies = state.movies.filter(
-        (movie) => movie.id != action.payload
+        (movie) => movie.movie_id != action.payload
       );
       return {
         ...state,
-        movies: newFavMovies,
+        movies: [...newFavMovies],
       };
     }
     case FETCH_FAVORITES:

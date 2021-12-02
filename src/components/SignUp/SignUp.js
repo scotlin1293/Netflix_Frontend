@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import "./SignUp.css";
+import "../Login/Login.css";
 import { TextField } from "@material-ui/core";
 import Button from "../UI/Button/Button";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -10,6 +10,7 @@ import { validEmailAndPhoneNumber } from "../../utils/validation";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { register } from "../../redux/actions/user-actions/userAction";
+import { fetchFavMovies } from "../../redux/actions/fav-movies-actions/favMoviesAction";
 
 /**
  * validates the email and password
@@ -103,23 +104,23 @@ const SignUp = (props) => {
     );
   }
 
-  const formSubmitHandler = (event) => {
+  const formSubmitHandler = async (event) => {
     event.preventDefault();
     if (!form.email.valid || !form.password.valid) {
       setForm((prevForm) => ({ ...prevForm, onSubmitInvalid: true }));
     } else {
     }
-    dispatch(
+    await dispatch(
       register(form.email.value, form.password.value, "", "", "temp@temp.com")
     );
+    await dispatch(fetchFavMovies());
   };
 
   if (user.token != "") {
     return <Redirect to="/"></Redirect>;
   }
   return (
-    <div className="Login" style={{ backgroundImage: `url()` }}>
-      <img src="" alt="Logo" />
+    <div className="Login">
       <div className="LoginCard">
         <h1>Sign Up</h1>
         <form onSubmit={formSubmitHandler}>
@@ -128,7 +129,7 @@ const SignUp = (props) => {
             className="textField"
             label="Email or phone number"
             variant="filled"
-            type="text"
+            type="input"
             style={{ backgroundColor: "#333" }}
             color="secondary"
             value={form.email.value}
