@@ -6,7 +6,7 @@ function FavoriteMovies() {
   const favMovies = useSelector((state) => state.favMovies).movies;
 
   return (
-    <div>
+    <div classname={styles.container}>
       {favMovies.map((movie) => {
         return (
           <div>

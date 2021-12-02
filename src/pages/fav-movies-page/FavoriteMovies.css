@@ -1,4 +1,11 @@
-.main {
-  width: 100%;
-  height: 100vh;
+.container {
+	position: relative;
+	margin-top: 70px;
+	width: 100%;
+	display: flex;
+}
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
 }
