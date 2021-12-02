@@ -11,6 +11,7 @@ import { login } from "../../redux/actions/user-actions/userAction";
 import { useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { fetchFavMovies } from "../../redux/actions/fav-movies-actions/favMoviesAction";
 
 /**
  * validates the email and password
@@ -104,12 +105,13 @@ const Login = (props) => {
     );
   }
 
-  const formSubmitHandler = (event) => {
+  const formSubmitHandler = async (event) => {
     event.preventDefault();
     if (!form.email.valid || !form.password.valid) {
       setForm((prevForm) => ({ ...prevForm, onSubmitInvalid: true }));
     } else {
-      dispatch(login(form.email.value, form.password.value));
+      await dispatch(login(form.email.value, form.password.value));
+      await dispatch(fetchFavMovies());
     }
   };
 
@@ -117,8 +119,7 @@ const Login = (props) => {
     return <Redirect to="/"></Redirect>;
   } else
     return (
-      <div className="Login" style={{ backgroundImage: `url()` }}>
-        <img src="" alt="Logo" />
+      <div className="Login">
         <div className="LoginCard">
           <h1>Sign In</h1>
           <form onSubmit={formSubmitHandler}>
@@ -127,7 +128,7 @@ const Login = (props) => {
               className="textField"
               label="username"
               variant="filled"
-              type="text"
+              type="input"
               style={{ backgroundColor: "#333" }}
               color="secondary"
               value={form.email.value}

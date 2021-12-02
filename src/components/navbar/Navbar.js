@@ -2,9 +2,6 @@
 /* eslint-disable  import/no-named-as-default */
 
 import React, { useEffect, useState } from "react";
-import { FiGift } from "react-icons/fi";
-import { FaBell } from "react-icons/fa";
-import { MdArrowDropDown } from "react-icons/md";
 import { ImSearch } from "react-icons/im";
 import { Redirect, NavLink } from "react-router-dom";
 import styles from "./styles/Navbar.module.css";
@@ -65,15 +62,16 @@ function Navbar() {
 
   useEffect(() => {
     /* eslint-disable no-unused-expressions */
-    window.addEventListener("scroll", () => {
-      window.scrollY > 95 ? handleShow(true) : handleShow(false);
-    });
-    return () => {
-      window.removeEventListener("scroll");
-    };
+    // window.addEventListener("scroll", () => {
+    //   window.scrollY > 95 ? handleShow(true) : handleShow(false);
+    // });
+    // return () => {
+    //   window.removeEventListener("scroll");
+    // };
   }, []);
 
   return (
+    <>
       <div className={`${styles.navbar} ${show && styles.navbarColor}`}>
         <div className={styles["flex-container"]}>
           <div className={styles["flex-container-logo"]}>
@@ -158,17 +156,6 @@ function Navbar() {
                   className={styles.link}
                   onClick={clearInputField}
                   to={{
-                    pathname: "/favorites/",
-                  }}
-                  exact
-                  activeStyle={{ fontWeight: "bold" }}
-                >
-                  My List
-                </NavLink>
-                <NavLink
-                  className={styles.link}
-                  onClick={clearInputField}
-                  to={{
                     pathname: "/login/",
                   }}
                   exact
@@ -190,6 +177,17 @@ function Navbar() {
               </div>
             ) : (
               <div>
+                <NavLink
+                  className={styles.link}
+                  onClick={clearInputField}
+                  to={{
+                    pathname: "/favorites/",
+                  }}
+                  exact
+                  activeStyle={{ fontWeight: "bold" }}
+                >
+                  My List
+                </NavLink>
                 <NavLink
                   className={styles.link}
                   onClick={logout}
