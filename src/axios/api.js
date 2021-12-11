@@ -6,7 +6,7 @@ BASE_URL = "https://netflix-twin1.herokuapp.com";
 async function request(endpoint, data = {}, method = "get", token = "") {
   console.debug("API Call:", endpoint, data, method);
 
-  const url = `${BASE_URL}/${endpoint}`;
+  let url = `${BASE_URL}/${endpoint}`;
   let headers = {};
   if (token != "") headers = { Authorization: `Bearer ${token}` };
   const params = method === "get" ? data : {};
