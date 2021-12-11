@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { IMAGE_URL } from "../../axios/API_END_POINTS";
-import  "./styles/Row.module.css";
+import styles from "./styles/Row.module.css";
 import Button from "./Button.js";
 function Row({ category, children, isNetflixRow, isColumn }) {
   const data = useSelector((state) => state.movieCategory.movieCollection);
