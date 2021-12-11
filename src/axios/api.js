@@ -7,7 +7,7 @@ async function request(endpoint, data = {}, method = "get", token = "") {
   console.debug("API Call:", endpoint, data, method);
 
   const url = `${BASE_URL}/${endpoint}`;
-  const headers = {};
+  let headers = {};
   if (token != "") headers = { Authorization: `Bearer ${token}` };
   const params = method === "get" ? data : {};
 
