@@ -2,7 +2,7 @@
 <a href="https://netflix-twin1.herokuapp.com/">View my demo!</a>
 
 ## Frontend Link
-fertile-rose.surge.sh
+historical-humor.surge.sh
 
 ## About my project
 A Netflix clone. Search movies by name, view movies by genre, add movies to favorites, with similar functionality and appearance as Netflix
