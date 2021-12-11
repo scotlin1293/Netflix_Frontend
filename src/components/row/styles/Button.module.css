@@ -1,0 +1,7 @@
+.Button {
+	display: inline-block;
+	border-radius: 3px;
+	border: 0;
+	outline: 0;
+	font-size: 1rem;
+}

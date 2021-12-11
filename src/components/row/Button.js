@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { IMAGE_URL } from "../../axios/API_END_POINTS";
+import styles from "./styles/Button.module.css";
 
 import {
   favorite,
